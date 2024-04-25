@@ -1,0 +1,37 @@
+.LendingApplyWrapper {
+  background-color: #fefdee;
+  padding: 80px 176px 0px 176px;
+
+  > .LendingApplyContainer {
+    max-width: 1280px;
+    width: 100%;
+    position: relative;
+
+    > .LendingApplyHeader {
+      color: #000;
+      font-size: 60px;
+      font-weight: 700;
+      line-height: 80px;
+    }
+
+    > .LendingApplyDescription {
+      margin: 36px 0px;
+      color: #000;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 36px;
+    }
+
+    > .LendingApplyButton {
+      width: 252px;
+      padding: 16px 40px;
+      border-radius: 64px;
+      background: #688edc;
+
+      color: #fff;
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+  }
+}
