@@ -1,7 +1,6 @@
 import * as React from 'react';
 import type { HeadFC, PageProps } from 'gatsby';
 import LedingApply from '../components/Lending/LendingApply/LedingApply';
-import '../global.scss';
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
