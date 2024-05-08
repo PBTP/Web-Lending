@@ -16,7 +16,7 @@ const LedingApply = () => {
         </div>
         <button className={styles.LendingApplyButton}>혜택받고 등록하기</button>
         <StaticImage
-          src="../../../images/lending_apply_image.png"
+          src="../../../images/lending/lending_apply_image.png"
           alt="LendingApplyImage"
           className={styles.LendingImage}
         />
