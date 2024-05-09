@@ -1,0 +1,59 @@
+.AllianceBenefitWrapper {
+  padding: 116px 176px;
+  background-color: #688edc;
+
+  > .AllianceBenefitTitle {
+    color: #fff;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  > .AllianceBenefitSubTitle {
+    color: #fff;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-top: 30px;
+  }
+
+  > .AllianceBenefitContainer {
+    margin-top: 76px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    > .AllianceBenefitContent {
+      padding: 24px;
+      background-color: #fff;
+      flex: 1;
+
+      > .AllianceBenefitBadge {
+        padding: 6px 16px;
+        border-radius: 8px;
+        background-color: #688edc;
+        color: #fff;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 18px;
+      }
+
+      > .AllianceBenefitText {
+        margin: 24px 0px;
+        color: #000;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 32px;
+      }
+
+      > .AllianceBenefitSubText {
+        color: #000;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+      }
+    }
+  }
+}
