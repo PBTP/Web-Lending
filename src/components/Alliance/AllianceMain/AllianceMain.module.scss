@@ -1,0 +1,85 @@
+.AllianceMainWrapper {
+  padding: 60px 176px;
+
+  > .AllianceMainHeader {
+    color: #88e3da;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 30px;
+  }
+
+  > .AllianceMainTitle {
+    color: #000;
+    text-align: center;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 48px;
+    margin-top: 30px;
+  }
+
+  > .AllianceMainSubTitle {
+    color: #000;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    margin-top: 60px;
+  }
+
+  > .AllianceMainBookingContent {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+
+    > .AllianceMainBooking {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      color: #000;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+  }
+
+  > .AllianceMainScheduleContent {
+    margin-top: 60px;
+
+    > .AllianceMainSchedule {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+    }
+
+    > .AllianceMainScheduleText {
+      color: #000;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin-top: 32px;
+    }
+  }
+
+  > .AllianceMainManageContent {
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    margin-top: 100px;
+
+    > .AllianceMainManageText {
+      color: #000;
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 32px;
+
+      > div {
+        &:nth-last-child(1) {
+          font-weight: 700;
+        }
+      }
+    }
+  }
+}
