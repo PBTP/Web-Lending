@@ -1,0 +1,52 @@
+@import '/src/styles/theme.scss';
+
+.NavContainer {
+  width: 100%;
+  background: #F6F4DC;
+  .NavWrapper {
+    max-width: 1280px;
+    padding: 0 215px 0 176px;
+    display: flex;
+    align-items: center;
+    .LogoWrap {
+
+    }
+    .MenuWrap {
+      margin-left: 50px;
+      width: 100%;
+    }
+    .Menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .Item {
+        display: flex;
+        align-items: center;
+        li:nth-child(2) {
+          margin-left: 53px;
+        }
+        > li {
+          padding: 0 8px;
+          cursor: pointer;
+          font-size: 24px;
+          font-weight: 400;
+        }
+        &.active {
+          > li {
+            font-weight: 800;
+            color: $primary;
+          }
+        }
+      }
+      .Button {
+        padding: 8px 24px;
+        border-radius: 8px;
+        background-color: $primary;
+        color: #Fff;
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+
