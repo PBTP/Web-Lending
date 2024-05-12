@@ -1,0 +1,118 @@
+.AllianceContactWrapper {
+  background-color: #fefdee;
+  padding: 120px 0px 100px 0px;
+
+  > .AllianceContactHeader {
+    color: #000;
+    text-align: center;
+    font-weight: 700;
+
+    > .AllianceContactTitle {
+      font-size: 22px;
+      line-height: 30px;
+    }
+
+    > .AllianceContactSubTitle {
+      margin-top: 30px;
+      font-size: 36px;
+      line-height: 48px;
+    }
+  }
+
+  > .AllianceContactContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    margin: 0 auto;
+    margin-top: 80px;
+    max-width: 460px;
+
+    > .AllianceContactPlatformContent {
+      > .AllianceContactPlatformHeader {
+        padding-left: 16px;
+        display: flex;
+
+        > .AllianceContactPlatformTitle {
+          color: #000;
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 24px;
+        }
+
+        > .AllianceContactPlatformRequire {
+          color: #ff6a69;
+          font-size: 13px;
+          font-weight: 600;
+          line-height: 20px;
+          margin-right: 20px;
+        }
+
+        > .AllianceContactPlatformSubTitle {
+          align-self: center;
+          color: #8b95a1;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      }
+
+      > .AllianceContactPlatformLine {
+        margin-top: 12px;
+        display: grid;
+        grid-row-gap: 16px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        > .AllianceContactPlatformField {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          width: fit-content;
+
+          > .AllianceContactPlatformName {
+            color: #000;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 24px;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+
+    > .AllianceContactInterviewContent {
+      > .AllianceContactInterviewLine {
+        display: flex;
+        gap: 16px;
+
+        > .AllianceContactInterviewHeader {
+          color: #000;
+          line-height: 28px;
+
+          > .AllianceContactInterviewTitle {
+            font-size: 16px;
+            font-weight: 600;
+          }
+
+          > .AllianceContactInterviewSubTitle {
+            font-size: 13px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    > .AllianceContactButton {
+      margin: 0 auto;
+      background-color: #688edc;
+      width: 252px;
+      margin-top: 60px;
+      padding: 16px 40px;
+      border-radius: 64px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+    }
+  }
+}
