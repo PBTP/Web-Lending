@@ -1,0 +1,47 @@
+.AllianceInputFieldWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  > .AllianceInputFieldHeader {
+    display: flex;
+    padding-left: 16px;
+
+    > .AllianceInputFieldTitle {
+      color: #000;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+    }
+
+    > .AllianceInputFieldRequire {
+      color: #ff6a69;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+
+  > .AllianceInputField {
+    padding: 12px 16px;
+    background-color: #fff;
+    color: #000;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    border-radius: 8px;
+    border: 1px solid #8b95a1;
+
+    &::placeholder {
+      color: #dbdee2;
+    }
+  }
+
+  > .AllianceInputFieldDescription {
+    margin-top: 8px;
+    color: #8b95a1;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
