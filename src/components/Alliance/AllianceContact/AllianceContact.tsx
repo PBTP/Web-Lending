@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as styles from './AllianceContact.module.scss';
 import AllianceInputField from '../BaseComponents/AllianceInputField';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const PlatformList = ['업체 홈페이지', '네이버 블로그', '인스타그램', '구글 폼', '전화예약'];
 
@@ -22,6 +23,26 @@ const AllianceContact = () => {
   };
 
   const [selectedPlatformList, setSelectedPlatformList] = useState<string[]>([]);
+
+  const handleSelectedPlatformList = (platform: string) => {
+    if (selectedPlatformList.includes(platform)) {
+      setSelectedPlatformList(selectedPlatformList.filter((item) => item !== platform));
+      return;
+    }
+
+    setSelectedPlatformList([...selectedPlatformList, platform]);
+  };
+
+  const [selectedInterview, setSelectedInterview] = useState<boolean>(false);
+
+  const { snsLink, ...validatedContactInfo } = contactInfo;
+  const validatedBenefitButton =
+    Object.values(validatedContactInfo).every((info) => info.length > 0) && selectedPlatformList.length > 0;
+
+  const handleBenefitButton = () => {
+    //api로직 추가
+    if (!validatedBenefitButton) return;
+  };
 
   return (
     <section className={styles.AllianceContactWrapper}>
@@ -49,7 +70,7 @@ const AllianceContact = () => {
           value={contactInfo.phone}
           onChange={handleInputChange}
           description="숫자만 입력해주세요."
-          placeholder="00000000000"
+          placeholder="01012345678"
           name="phone"
         />
         <AllianceInputField
@@ -68,9 +89,17 @@ const AllianceContact = () => {
             <span className={styles.AllianceContactPlatformSubTitle}>복수 선택 가능</span>
           </div>
           <div className={styles.AllianceContactPlatformLine}>
-            {PlatformList.map((platfrom) => (
-              <div className={styles.AllianceContactPlatformField}>
-                <div>ㅁ</div>
+            {PlatformList.map((platfrom, idx) => (
+              <div
+                key={platfrom + idx}
+                onClick={() => handleSelectedPlatformList(platfrom)}
+                className={styles.AllianceContactPlatformField}
+              >
+                {selectedPlatformList.includes(platfrom) ? (
+                  <StaticImage src="../../../images/alliance/alliance_contact_checked.svg" alt="checked" />
+                ) : (
+                  <StaticImage src="../../../images/alliance/alliance_contact_un_checked.svg" alt="unChecked" />
+                )}
                 <div className={styles.AllianceContactPlatformName}>{platfrom}</div>
               </div>
             ))}
@@ -87,8 +116,24 @@ const AllianceContact = () => {
         />
 
         <div className={styles.AllianceContactInterviewContent}>
-          <div className={styles.AllianceContactInterviewLine}>
-            <div>ㅁ</div>
+          <div onClick={() => setSelectedInterview((prev) => !prev)} className={styles.AllianceContactInterviewLine}>
+            {selectedInterview ? (
+              <StaticImage
+                width={24}
+                height={24}
+                layout="fixed"
+                src="../../../images/alliance/alliance_contact_checked.svg"
+                alt="checked"
+              />
+            ) : (
+              <StaticImage
+                width={24}
+                height={24}
+                layout="fixed"
+                src="../../../images/alliance/alliance_contact_un_checked.svg"
+                alt="unChecked"
+              />
+            )}
             <div className={styles.AllianceContactInterviewHeader}>
               <div className={styles.AllianceContactInterviewTitle}>앱 개발을 위한 전화 인터뷰 가능</div>
               <div className={styles.AllianceContactInterviewSubTitle}>
@@ -97,7 +142,9 @@ const AllianceContact = () => {
             </div>
           </div>
         </div>
-        <button className={styles.AllianceContactButton}>혜택받고 등록하기</button>
+        <button className={styles.AllianceContactButton} disabled={!validatedBenefitButton}>
+          혜택받고 등록하기
+        </button>
       </div>
     </section>
   );
