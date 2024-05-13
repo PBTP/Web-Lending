@@ -84,6 +84,7 @@
       > .AllianceContactInterviewLine {
         display: flex;
         gap: 16px;
+        cursor: pointer;
 
         > .AllianceContactInterviewHeader {
           color: #000;
@@ -113,6 +114,12 @@
       font-size: 24px;
       font-weight: 700;
       line-height: 32px;
+      transition: background-color 0.3s;
+
+      &:disabled {
+        pointer-events: none;
+        background-color: #dbdee2;
+      }
     }
   }
 }
