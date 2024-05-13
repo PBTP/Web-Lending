@@ -8,10 +8,10 @@
     padding: 0 215px 0 176px;
     display: flex;
     align-items: center;
-    .LogoWrap {
-
+    .LogoWrapper {
+      
     }
-    .MenuWrap {
+    .MenuWrapper {
       margin-left: 50px;
       width: 100%;
     }
@@ -31,14 +31,8 @@
           font-size: 24px;
           font-weight: 400;
         }
-        &.active {
-          > li {
-            font-weight: 800;
-            color: $primary;
-          }
-        }
       }
-      .Button {
+      .BenefitButton {
         padding: 8px 24px;
         border-radius: 8px;
         background-color: $primary;
