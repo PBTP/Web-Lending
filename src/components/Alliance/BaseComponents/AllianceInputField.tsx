@@ -1,35 +1,20 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import * as styles from './AllianceInputField.module.scss';
 
-type AllianceInputFieldProps = {
+interface AllianceInputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
-  placeholder: string;
-  value: string;
-  setValue: React.Dispatch<string>;
   description?: string;
   required?: boolean;
-};
+}
 
-const AllianceInputField = ({
-  title,
-  placeholder,
-  value,
-  setValue,
-  description,
-  required = true,
-}: AllianceInputFieldProps) => {
+const AllianceInputField = ({ title, description, required = true, ...props }: AllianceInputFieldProps) => {
   return (
     <div className={styles.AllianceInputFieldWrapper}>
       <div className={styles.AllianceInputFieldHeader}>
         <div className={styles.AllianceInputFieldTitle}>{title}</div>
         {required && <div className={styles.AllianceInputFieldRequire}>*</div>}
       </div>
-      <input
-        className={styles.AllianceInputField}
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        placeholder={placeholder}
-      />
+      <input {...props} className={styles.AllianceInputField} />
       {description && <div className={styles.AllianceInputFieldDescription}>{description}</div>}
     </div>
   );
