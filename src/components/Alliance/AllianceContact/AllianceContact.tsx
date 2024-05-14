@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as styles from './AllianceContact.module.scss';
 import AllianceInputField from '../BaseComponents/AllianceInputField';
 import { StaticImage } from 'gatsby-plugin-image';
+import AllianceDropdown from '../AllianceDropdown/AllianceDropdown';
 
 const PlatformList = ['업체 홈페이지', '네이버 블로그', '인스타그램', '구글 폼', '전화예약'];
 
@@ -34,10 +35,13 @@ const AllianceContact = () => {
   };
 
   const [selectedInterview, setSelectedInterview] = useState<boolean>(false);
+  const [selectedDistrict, setSelectedDistrict] = useState<string>('');
 
   const { snsLink, ...validatedContactInfo } = contactInfo;
   const validatedBenefitButton =
-    Object.values(validatedContactInfo).every((info) => info.length > 0) && selectedPlatformList.length > 0;
+    Object.values(validatedContactInfo).every((info) => info.length > 0) &&
+    selectedPlatformList.length > 0 &&
+    selectedDistrict.length > 0;
 
   const handleBenefitButton = () => {
     //api로직 추가
@@ -81,6 +85,8 @@ const AllianceContact = () => {
           placeholder="몽글몽글 2호점"
           name="store"
         />
+
+        <AllianceDropdown selectedDistrict={selectedDistrict} setSelectedDistrict={setSelectedDistrict} />
 
         <div className={styles.AllianceContactPlatformContent}>
           <div className={styles.AllianceContactPlatformHeader}>
