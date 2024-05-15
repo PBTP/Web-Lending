@@ -76,6 +76,7 @@ const AllianceContact = () => {
           description="숫자만 입력해주세요."
           placeholder="01012345678"
           name="phone"
+          type="number"
         />
         <AllianceInputField
           title="업체명"

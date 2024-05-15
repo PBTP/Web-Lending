@@ -38,11 +38,19 @@ const AllianceDropdown = ({ selectedDistrict, setSelectedDistrict }: AllianceDro
           placeholder="지역을 선택해주세요"
           readOnly
         />
-        <StaticImage src="../../../images/arrow_drop_down.svg" alt="arrowDropDown" />
+        <StaticImage
+          className={`${styles.AllianceDropdownArrow} ${activeDropdown ? styles.Active : ''} `}
+          src="../../../images/arrow_drop_down.svg"
+          alt="arrowDropDown"
+        />
         {activeDropdown && (
           <div className={styles.AllianceDropdownDistrictWrapper}>
-            {districtList.map((district) => (
-              <div onClick={() => setSelectedDistrict(district)} className={styles.AllianceDropdownDistrict}>
+            {districtList.map((district, idx) => (
+              <div
+                key={district + idx}
+                onClick={() => setSelectedDistrict(district)}
+                className={styles.AllianceDropdownDistrict}
+              >
                 {district}
               </div>
             ))}
