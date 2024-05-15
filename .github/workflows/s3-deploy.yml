@@ -10,7 +10,7 @@ on:
 # 위의 이벤트가 트리거되면 실행할 목록입니다.
 jobs:
   build:
-    name: react build & deploy
+    name: React build & deploy
     # runner가 실행될 환경을 지정합니다.
     runs-on: ubuntu-latest
     
@@ -21,26 +21,12 @@ jobs:
       # 레포지토리에 접근하여 CI서버로 코드를 내려받는 과정입니다.
       - name: checkout Github Action
         uses: actions/checkout@v3
-      
-      # workflow가 실행될 때 필요한 파일 중에서 거의 바뀌지 않는 파일들을 GitHub의 캐시에 올려놓고 CI 서버로 내려받습니다.
-      # 프로젝트에서 자주 바뀌지 않는 수많은 패키지를 매번 다운받아 올리면 시간도 오래걸리고 네트워크 대역폭을 많이 사용하게됩니다.
-      - name: Get yarn cache directory
-        id: yarn-cache-dir
-        run: |
-          echo "::set-output name=dir::$(yarn config get cache)"
-      - uses: actions/cache@v3
-        id: yarn-cache
-        with:
-          path: ${{ steps.yarn-cache-dir.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      
-      - name: install yarn dependencies
-        run: yarn install
-        
-      - name: react build
-        run: yarn build
+    
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
       
       # aws에 접근하기 위한 권한을 받아옵니다.
       - name: Configure AWS credentials
@@ -56,7 +42,7 @@ jobs:
           BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
         run: |
           aws s3 sync \
-            ./dist s3://$BUCKET_NAME
+            ./public s3://$BUCKET_NAME
       
       # cloudfront로 배포되는 파일은 기본설정 상 24시간동안 캐시가 유지됩니다.
       # 배포 후 S3에는 최신 정적리소스가 올라가있지만 엣지로케이션엔 이전 파일이 올라가있는 상태라는 의미입니다.
