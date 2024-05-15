@@ -1,0 +1,46 @@
+@import '/src/styles/theme.scss';
+
+.NavContainer {
+  width: 100%;
+  background: #F6F4DC;
+  .NavWrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    .LogoWrapper {
+      
+    }
+    .MenuWrapper {
+      margin-left: 50px;
+      width: 100%;
+    }
+    .Menu {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .Item {
+        display: flex;
+        align-items: center;
+        li:nth-child(2) {
+          margin-left: 53px;
+        }
+        > li {
+          padding: 0 8px;
+          cursor: pointer;
+          font-size: 24px;
+          font-weight: 400;
+        }
+      }
+      .BenefitButton {
+        padding: 8px 24px;
+        border-radius: 8px;
+        background-color: $primary;
+        color: #Fff;
+        margin-right: 30px;
+      }
+    }
+  }
+}
+
+
