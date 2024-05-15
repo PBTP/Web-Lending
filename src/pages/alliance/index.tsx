@@ -4,14 +4,16 @@ import LedingApply from '../../components/Lending/LendingApply/LedingApply';
 import AllianceBenefit from '../../components/Alliance/AllianceBenefit/AllianceBenefit';
 import AllianceMain from '../../components/Alliance/AllianceMain/AllianceMain';
 import Nav from '../../components/Nav/Nav';
+import AllianceContact from '../../components/Alliance/AllianceContact/AllianceContact';
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
     <main>
-      <Nav/>
+      <Nav />
       <LedingApply />
       <AllianceMain />
       <AllianceBenefit />
+      <AllianceContact />
     </main>
   );
 };

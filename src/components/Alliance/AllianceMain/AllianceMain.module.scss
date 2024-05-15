@@ -28,6 +28,8 @@
   }
 
   > .AllianceMainBookingContent {
+    max-width: 1200px;
+    margin: 0 auto;
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
@@ -67,7 +69,7 @@
     display: flex;
     justify-content: center;
     gap: 90px;
-    margin-top: 100px;
+    margin-top: 85px;
 
     > .AllianceMainManageText {
       color: #000;
