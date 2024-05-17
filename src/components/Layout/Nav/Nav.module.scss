@@ -4,18 +4,26 @@
 
 .NavContainer {
   width: 100%;
+  
   background: #F6F4DC;
   .NavWrapper {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    @include mobile{
+      display: flex;
+      justify-content: space-between;
+    }
     .LogoWrapper {
       
     }
     .MenuWrapper {
       margin-left: 50px;
       width: 100%;
+      @include mobile {
+        width: auto;
+      }
     }
     .Menu {
       display: flex;
