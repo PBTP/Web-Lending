@@ -3,18 +3,20 @@ import { HeadFC, PageProps } from 'gatsby';
 import LedingApply from '../../components/Lending/LendingApply/LedingApply';
 import AllianceBenefit from '../../components/Alliance/AllianceBenefit/AllianceBenefit';
 import AllianceMain from '../../components/Alliance/AllianceMain/AllianceMain';
-import Nav from '../../components/Nav/Nav';
+import Nav from '../../components/Layout/Nav/Nav';
 import AllianceContact from '../../components/Alliance/AllianceContact/AllianceContact';
+import Layout from '../../components/Layout/Layout';
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <main>
-      <Nav />
-      <LedingApply />
-      <AllianceMain />
-      <AllianceBenefit />
-      <AllianceContact />
-    </main>
+    <Layout>
+      <main>
+        <LedingApply />
+        <AllianceMain />
+        <AllianceBenefit />
+        <AllianceContact />
+      </main>
+    </Layout>
   );
 };
 

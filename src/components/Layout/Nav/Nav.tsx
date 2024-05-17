@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import * as styles from './Nav.module.scss';
-import NavbarMenuLink from '../common/NavbarMenuLink';
+import NavbarMenuLink from '../../common/NavbarMenuLink';
 
 const Nav = () => {
   
@@ -11,7 +11,7 @@ const Nav = () => {
       <div className={styles.NavWrapper}>
         <div className={styles.LogoWrapper}>
           <Link to="/">
-            <StaticImage src="../../images/logo.svg" alt="logo" />
+            <StaticImage src="../../../images/logo.svg" alt="logo" />
           </Link>
         </div>
         <div className={styles.MenuWrapper}>
