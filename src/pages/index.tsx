@@ -11,8 +11,8 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <Layout>
       <main>
-        {/* <LedingApply />
-        <LendingReservation />
+        <LedingApply />
+        {/* <LendingReservation />
         <LendingStore />
         <LendingReview /> */}
       </main>

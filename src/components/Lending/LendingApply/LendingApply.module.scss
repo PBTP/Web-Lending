@@ -1,7 +1,11 @@
+@import '/src/styles/responsive.scss';
+
 .LendingApplyWrapper {
   background-color: #fefdee;
   padding: 80px 215px 114px 176px;
-
+  @include mobile {
+    padding: 24px 0 16px 0;
+  }
   > .LendingApplyContainer {
     margin: 0 auto;
     max-width: 1200px;
@@ -14,6 +18,11 @@
       font-size: 60px;
       font-weight: 700;
       line-height: 80px;
+      @include mobile {
+        font-size: 24px;
+        font-style: normal;
+        line-height: 32px; /* 133.333% */
+      }
     }
 
     > .LendingApplyDescription {
@@ -22,6 +31,13 @@
       font-size: 24px;
       font-weight: 500;
       line-height: 36px;
+      @include mobile {
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px; /* 142.857% */
+        margin: 16px 0 0 0;
+      }
     }
 
     > .LendingApplyButton {
@@ -34,6 +50,9 @@
       font-size: 23px;
       font-weight: 700;
       line-height: 32px;
+      @include mobile {
+        display: none;
+      }
     }
 
     > .LendingImage {
@@ -42,6 +61,15 @@
       bottom: 0;
       width: 369px;
       height: 341px;
+      @include mobile {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        float: right;
+        width: 181px;
+        height: 160px;
+      }
     }
   }
 }
