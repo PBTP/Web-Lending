@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
           cookie_expires: 1000,
         },
         pluginConfig: {
-          head: false,
+          head: true,
           respectDNT: true,
           //origin: "https://www.googletagmanager.com",
           delayOnRouteUpdate: 1000,
