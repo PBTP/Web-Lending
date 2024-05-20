@@ -1,4 +1,10 @@
+@import "./src/styles/responsive.scss";
+
 .LendingStoreWrapper {
   background-color: #fefdee;
   padding: 80px 215px 114px 176px;
+
+  @include media(phone) {
+    padding: 20px;
+  }
 }

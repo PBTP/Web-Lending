@@ -12,9 +12,9 @@ const IndexPage: React.FC<PageProps> = () => {
     <Layout>
       <main>
         <LedingApply />
-        {/* <LendingReservation />
+        <LendingReservation />
         <LendingStore />
-        <LendingReview /> */}
+        {/* <LendingReview /> */}
       </main>
     </Layout>
   );
