@@ -1,6 +1,12 @@
+@import "/src/styles/responsive.scss";
+
 .AllianceBenefitWrapper {
   padding: 116px 176px;
   background-color: #688edc;
+
+  @include media(phone) {
+    padding: 40px 20px;
+  }
 
   > .AllianceBenefitTitle {
     color: #fff;
@@ -8,6 +14,12 @@
     font-size: 22px;
     font-weight: 700;
     line-height: 30px;
+
+    @include media(phone) {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 24px;
+    }
   }
 
   > .AllianceBenefitSubTitle {
@@ -17,6 +29,13 @@
     font-weight: 700;
     line-height: 48px;
     margin-top: 30px;
+
+    @include media(phone) {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin-top: 16px;
+    }
   }
 
   > .AllianceBenefitContainer {
@@ -26,6 +45,12 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+
+    @include media(phone) {
+      flex-direction: column;
+      margin-top: 40px;
+      gap: 24px;
+    }
 
     > .AllianceBenefitContent {
       padding: 24px;
