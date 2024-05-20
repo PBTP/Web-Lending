@@ -1,22 +1,36 @@
 @import './theme.scss';
-
-/*반응형, 브라우저 크기가 767px 이하일때*/
-@mixin mobile{
-  @media (max-width: $mobile){
+@mixin phone {
+  @media (max-width: $mobileWidth) {
     @content;
   }
 }
 
-/*반응형, 브라우저 크기가 768이상, 1023px 이하일때*/
-@mixin tablet{
-  @media (min-width: $mobile+1) and (max-width: $tablet){
+@mixin tablet {
+  @media (min-width: $mobileWidth+1) and (max-width: $tabletWidth) {
     @content;
   }
 }
 
-/*반응형, 브라우저 크기가 1024px 이상일때*/
-@mixin desktop{
-  @media (min-width: $desktop){
+@mixin desktop {
+  @media (min-width: $desktopWidth) {
     @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == phone) {
+      @include phone {
+        @content;
+      }
+    } @else if ($key == tablet) {
+      @include tablet {
+        @content;
+      }
+    } @else if ($key == desktop) {
+      @include desktop {
+        @content;
+      }
+    }
   }
 }
