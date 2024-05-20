@@ -1,4 +1,4 @@
-@import './theme.scss';
+@import "./theme.scss";
 @mixin phone {
   @media (max-width: $mobileWidth) {
     @content;
@@ -6,7 +6,7 @@
 }
 
 @mixin tablet {
-  @media (min-width: $mobileWidth+1) and (max-width: $tabletWidth) {
+  @media (min-width: ($mobileWidth + 1px)) and (max-width: $tabletWidth) {
     @content;
   }
 }

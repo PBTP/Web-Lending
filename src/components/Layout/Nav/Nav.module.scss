@@ -1,30 +1,28 @@
-@import '/src/styles/theme.scss';
-@import '/src/styles/responsive.scss';
-
+@import "/src/styles/theme.scss";
+@import "/src/styles/responsive.scss";
 
 .NavContainer {
   width: 100%;
-  
-  background: #F6F4DC;
-  @include mobile {
-    background: #FEFDEE;
+
+  background: #f6f4dc;
+  @include media(phone) {
+    background: #fefdee;
   }
   .NavWrapper {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    @include mobile{
+    @include media(phone) {
       display: flex;
       justify-content: space-between;
     }
     .LogoWrapper {
-      
     }
     .MenuWrapper {
       margin-left: 50px;
       width: 100%;
-      @include mobile {
+      @include media(phone) {
         width: auto;
       }
     }
@@ -43,7 +41,7 @@
           cursor: pointer;
           font-size: 24px;
           font-weight: 400;
-          @include mobile {
+          @include media(phone) {
             font-size: 17px;
             font-weight: 600;
           }
@@ -53,14 +51,12 @@
         padding: 8px 24px;
         border-radius: 8px;
         background-color: $primary;
-        color: #Fff;
+        color: #fff;
         margin-right: 30px;
-        @include mobile {
+        @include media(phone) {
           display: none;
         }
       }
     }
   }
 }
-
-
