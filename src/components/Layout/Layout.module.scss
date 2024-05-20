@@ -1,0 +1,7 @@
+@import './src/styles/responsive.scss';
+.LayoutContainer { 
+    @include mobile {
+        padding: 14px 20px;
+        background: #FEFDEE;
+    }
+}

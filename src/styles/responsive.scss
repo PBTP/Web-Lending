@@ -1,0 +1,36 @@
+@import './theme.scss';
+@mixin phone {
+  @media (max-width: $mobileWidth) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $mobileWidth+1) and (max-width: $tabletWidth) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktopWidth) {
+    @content;
+  }
+}
+
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if ($key == phone) {
+      @include phone {
+        @content;
+      }
+    } @else if ($key == tablet) {
+      @include tablet {
+        @content;
+      }
+    } @else if ($key == desktop) {
+      @include desktop {
+        @content;
+      }
+    }
+  }
+}

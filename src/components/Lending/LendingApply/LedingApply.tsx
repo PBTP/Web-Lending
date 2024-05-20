@@ -11,8 +11,8 @@ const LedingApply = () => {
           <div>반려견 출장 목욕 서비스</div>
         </div>
         <div className={styles.LendingApplyDescription}>
-          <div>출장목욕에 관심있는 반려인에게</div>
-          <div>출장목욕을 홍보하고 편리하게 예약 관리를 하고 싶으신가요?</div>
+          <div>반려견의 건강과 미용 서비스를 한 곳에서 모아보고</div>
+          <div>효율적으로 관리하세요.</div>
         </div>
         <button className={styles.LendingApplyButton}>혜택받고 등록하기</button>
         <StaticImage
