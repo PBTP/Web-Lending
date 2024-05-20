@@ -1,5 +1,11 @@
+@import "/src/styles/responsive.scss";
+
 .AllianceMainWrapper {
   padding: 60px 176px;
+
+  @include media(phone) {
+    padding: 0px 20px;
+  }
 
   > .AllianceMainHeader {
     color: #88e3da;
@@ -7,6 +13,12 @@
     font-size: 22px;
     font-weight: 700;
     line-height: 30px;
+
+    @include media(phone) {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 24px;
+    }
   }
 
   > .AllianceMainTitle {
@@ -16,6 +28,13 @@
     font-weight: 700;
     line-height: 48px;
     margin-top: 30px;
+
+    @include media(phone) {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 32px;
+      margin-top: 16px;
+    }
   }
 
   > .AllianceMainSubTitle {
@@ -25,6 +44,13 @@
     font-weight: 700;
     line-height: 32px;
     margin-top: 60px;
+
+    @include media(phone) {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      margin-top: 16px;
+    }
   }
 
   > .AllianceMainBookingContent {
@@ -33,6 +59,11 @@
     margin-top: 60px;
     display: flex;
     justify-content: space-between;
+
+    @include media(phone) {
+      flex-direction: column;
+      gap: 40px;
+    }
 
     > .AllianceMainBooking {
       display: flex;
@@ -43,16 +74,42 @@
       font-size: 24px;
       font-weight: 700;
       line-height: 32px;
+
+      @include media(phone) {
+        flex-direction: column-reverse;
+        //gap 값 다시 받아야함
+        gap: 24px;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 24px;
+        text-align: start;
+
+        &:nth-last-child(1) {
+          flex-direction: column;
+        }
+      }
     }
   }
 
   > .AllianceMainScheduleContent {
     margin-top: 60px;
 
+    @include media(phone) {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 40px;
+    }
+
     > .AllianceMainSchedule {
       display: flex;
       justify-content: center;
       gap: 36px;
+
+      @include media(phone) {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
     }
 
     > .AllianceMainScheduleText {
@@ -62,6 +119,15 @@
       font-weight: 700;
       line-height: 32px;
       margin-top: 32px;
+
+      @include media(phone) {
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 24px;
+        margin-top: 0;
+        margin-bottom: 24px;
+        text-align: start;
+      }
     }
   }
 
@@ -71,11 +137,24 @@
     gap: 90px;
     margin-top: 85px;
 
+    @include media(phone) {
+      flex-direction: column;
+      gap: 24px;
+      margin-top: 40px;
+      padding-bottom: 60px;
+    }
+
     > .AllianceMainManageText {
       color: #000;
       font-size: 24px;
       font-weight: 400;
       line-height: 32px;
+
+      @include media(phone) {
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 24px;
+      }
 
       > div {
         &:nth-last-child(1) {

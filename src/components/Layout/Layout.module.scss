@@ -1,7 +1,6 @@
 @import "./src/styles/responsive.scss";
 .LayoutContainer {
   @include media(phone) {
-    padding: 14px 20px;
     background: #fefdee;
   }
 }
