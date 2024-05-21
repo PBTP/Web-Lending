@@ -22,7 +22,7 @@ const Description = ({ children }: DescriptionProps) => {
 };
 
 const Image = ({ children }: ImageProps) => {
-  return <div>{children}</div>;
+  return <div className={styles.Image}>{children}</div>;
 };
 
 LendingFlexContent.Header = Header;

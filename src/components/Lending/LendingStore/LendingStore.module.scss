@@ -1,4 +1,21 @@
+@import "./src/styles/responsive.scss";
+
 .LendingStoreWrapper {
   background-color: #fefdee;
   padding: 80px 215px 114px 176px;
+
+  @include media(phone) {
+    padding: 20px 20px 50px 20px;
+  }
+}
+
+.LendingStoreMbImageWrapper {
+  display: none;
+
+  @include media(phone) {
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }

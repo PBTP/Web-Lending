@@ -16,6 +16,7 @@
     @include media(phone) {
       display: flex;
       justify-content: space-between;
+      padding: 20px;
     }
     .LogoWrapper {
     }
@@ -24,6 +25,7 @@
       width: 100%;
       @include media(phone) {
         width: auto;
+        margin-left: 0;
       }
     }
     .Menu {
@@ -35,6 +37,9 @@
         align-items: center;
         li:nth-child(2) {
           margin-left: 53px;
+          @include media (phone) {
+            margin-left: 0;
+          }
         }
         > li {
           padding: 0 8px;
@@ -42,7 +47,7 @@
           font-size: 24px;
           font-weight: 400;
           @include media(phone) {
-            font-size: 17px;
+            font-size: 14px;
             font-weight: 600;
           }
         }

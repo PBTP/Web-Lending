@@ -1,7 +1,12 @@
+@import './src/styles/responsive.scss';
+
 .LendingReservationWrapper {
   background-color: #fff;
   padding-top: 86px;
-
+  @include media(phone) {
+    background-color: #fefdee;
+    padding: 20px;
+  }
   > .LendingReservationText {
     color: #000;
     text-align: center;
@@ -9,11 +14,30 @@
     font-weight: 700;
     line-height: 68px;
     margin-bottom: 61px;
+    > div > br {
+      display: none;
+    }
+    @include media(phone) {
+      font-size: 24px;
+      text-align: left;
+      line-height: 32px;
+      > div > br {
+        display: block;
+      }
+    }
   }
 
   > .LendingReservationImage {
     display: flex;
     justify-content: center;
     gap: 24px;
+    >img,svg {
+      width: 250px;
+      height: 507px;
+      @include media(phone) {
+        width: 105px;
+        height: 253px;
+      }
+    }
   }
 }
