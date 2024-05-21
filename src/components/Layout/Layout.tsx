@@ -1,8 +1,9 @@
-import React from "react";
-import Nav from "./Nav/Nav";
-import * as styles from "./Layout.module.scss";
-import Footer from "./Footer/Footer";
-import { Link } from "gatsby";
+import React from 'react';
+import Nav from './Nav/Nav';
+import * as styles from './Layout.module.scss';
+import Footer from './Footer/Footer';
+import { Link } from 'gatsby';
+import ApplyLink from '../common/ApplyLink';
 type LayoutProps = {
   children: React.ReactNode;
 };
@@ -13,13 +14,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Nav />
       {children}
       <Footer />
-      <Link
-        className={styles.LayoutMobileApplyLink}
-        to="/alliance"
-        state={{ shouldScrollToContact: true }}
-      >
-        혜택받고 등록하기
-      </Link>
+      <ApplyLink className={styles.LayoutMobileApplyLink} />
     </div>
   );
 };

@@ -1,16 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import * as styles from "./AllianceContact.module.scss";
-import AllianceInputField from "../BaseComponents/AllianceInputField";
-import { StaticImage } from "gatsby-plugin-image";
-import AllianceDropdown from "../AllianceDropdown/AllianceDropdown";
+import React, { useEffect, useRef, useState } from 'react';
+import * as styles from './AllianceContact.module.scss';
+import AllianceInputField from '../BaseComponents/AllianceInputField';
+import { StaticImage } from 'gatsby-plugin-image';
+import AllianceDropdown from '../AllianceDropdown/AllianceDropdown';
 
-const PlatformList = [
-  "업체 홈페이지",
-  "네이버 블로그",
-  "인스타그램",
-  "구글 폼",
-  "전화예약",
-];
+const PlatformList = ['업체 홈페이지', '네이버 블로그', '인스타그램', '구글 폼', '전화예약'];
 
 type AllianceContactProps = {
   shouldScrollToContact: boolean;
@@ -18,11 +12,11 @@ type AllianceContactProps = {
 
 const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
   const [contactInfo, setContactInfo] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    store: "",
-    snsLink: "",
+    name: '',
+    email: '',
+    phone: '',
+    store: '',
+    snsLink: '',
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -33,15 +27,11 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
     }));
   };
 
-  const [selectedPlatformList, setSelectedPlatformList] = useState<string[]>(
-    []
-  );
+  const [selectedPlatformList, setSelectedPlatformList] = useState<string[]>([]);
 
   const handleSelectedPlatformList = (platform: string) => {
     if (selectedPlatformList.includes(platform)) {
-      setSelectedPlatformList(
-        selectedPlatformList.filter((item) => item !== platform)
-      );
+      setSelectedPlatformList(selectedPlatformList.filter((item) => item !== platform));
       return;
     }
 
@@ -49,7 +39,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
   };
 
   const [selectedInterview, setSelectedInterview] = useState<boolean>(false);
-  const [selectedDistrict, setSelectedDistrict] = useState<string>("");
+  const [selectedDistrict, setSelectedDistrict] = useState<string>('');
 
   const { snsLink, ...validatedContactInfo } = contactInfo;
   const validatedBenefitButton =
@@ -57,32 +47,50 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
     selectedPlatformList.length > 0 &&
     selectedDistrict.length > 0;
 
-  const handleBenefitButton = () => {
-    //api로직 추가
+  const handleBenefitButton = async () => {
     if (!validatedBenefitButton) return;
+
+    try {
+      const data = await fetch('https://api.mgmg.life/pre-registration-survey', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: contactInfo.name,
+          email: contactInfo.email,
+          phoneNumber: contactInfo.phone,
+          businessName: contactInfo.store,
+          region: selectedDistrict,
+          reservationPlatform: selectedPlatformList,
+          snsContact: contactInfo.snsLink,
+          phoneInterview: selectedInterview,
+        }),
+      })
+        .then(() => {
+          alert('등록이 완료되었습니다.');
+        })
+        .catch((e) => {
+          throw Error(e);
+        });
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
   const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!allianceContactWrapperRef || !allianceContactWrapperRef.current)
-      return;
+    if (!allianceContactWrapperRef || !allianceContactWrapperRef.current) return;
 
     if (shouldScrollToContact) {
-      allianceContactWrapperRef.current.scrollIntoView({ behavior: "smooth" });
+      allianceContactWrapperRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [allianceContactWrapperRef]);
 
   return (
-    <section
-      ref={allianceContactWrapperRef}
-      className={styles.AllianceContactWrapper}
-    >
+    <section ref={allianceContactWrapperRef} className={styles.AllianceContactWrapper}>
       <div className={styles.AllianceContactHeader}>
         <div className={styles.AllianceContactTitle}>Contact</div>
-        <div className={styles.AllianceContactSubTitle}>
-          지금 등록하고 혜택받기
-        </div>
+        <div className={styles.AllianceContactSubTitle}>지금 등록하고 혜택받기</div>
       </div>
       <div className={styles.AllianceContactContainer}>
         <AllianceInputField
@@ -117,20 +125,13 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
           name="store"
         />
 
-        <AllianceDropdown
-          selectedDistrict={selectedDistrict}
-          setSelectedDistrict={setSelectedDistrict}
-        />
+        <AllianceDropdown selectedDistrict={selectedDistrict} setSelectedDistrict={setSelectedDistrict} />
 
         <div className={styles.AllianceContactPlatformContent}>
           <div className={styles.AllianceContactPlatformHeader}>
-            <span className={styles.AllianceContactPlatformTitle}>
-              현재 이용 중인 예약 플랫폼
-            </span>
+            <span className={styles.AllianceContactPlatformTitle}>현재 이용 중인 예약 플랫폼</span>
             <span className={styles.AllianceContactPlatformRequire}>*</span>
-            <span className={styles.AllianceContactPlatformSubTitle}>
-              복수 선택 가능
-            </span>
+            <span className={styles.AllianceContactPlatformSubTitle}>복수 선택 가능</span>
           </div>
           <div className={styles.AllianceContactPlatformLine}>
             {PlatformList.map((platfrom, idx) => (
@@ -140,19 +141,11 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
                 className={styles.AllianceContactPlatformField}
               >
                 {selectedPlatformList.includes(platfrom) ? (
-                  <StaticImage
-                    src="../../../images/alliance/alliance_contact_checked.svg"
-                    alt="checked"
-                  />
+                  <StaticImage src="../../../images/alliance/alliance_contact_checked.svg" alt="checked" />
                 ) : (
-                  <StaticImage
-                    src="../../../images/alliance/alliance_contact_un_checked.svg"
-                    alt="unChecked"
-                  />
+                  <StaticImage src="../../../images/alliance/alliance_contact_un_checked.svg" alt="unChecked" />
                 )}
-                <div className={styles.AllianceContactPlatformName}>
-                  {platfrom}
-                </div>
+                <div className={styles.AllianceContactPlatformName}>{platfrom}</div>
               </div>
             ))}
           </div>
@@ -168,10 +161,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
         />
 
         <div className={styles.AllianceContactInterviewContent}>
-          <div
-            onClick={() => setSelectedInterview((prev) => !prev)}
-            className={styles.AllianceContactInterviewLine}
-          >
+          <div onClick={() => setSelectedInterview((prev) => !prev)} className={styles.AllianceContactInterviewLine}>
             {selectedInterview ? (
               <StaticImage
                 width={24}
@@ -190,9 +180,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
               />
             )}
             <div className={styles.AllianceContactInterviewHeader}>
-              <div className={styles.AllianceContactInterviewTitle}>
-                앱 개발을 위한 전화 인터뷰 가능
-              </div>
+              <div className={styles.AllianceContactInterviewTitle}>앱 개발을 위한 전화 인터뷰 가능</div>
               <div className={styles.AllianceContactInterviewSubTitle}>
                 *인터뷰시 1개월간 메인화면에 무료 광고를 제공합니다.
               </div>
@@ -200,6 +188,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
           </div>
         </div>
         <button
+          onClick={handleBenefitButton}
           className={styles.AllianceContactButton}
           disabled={!validatedBenefitButton}
         >
