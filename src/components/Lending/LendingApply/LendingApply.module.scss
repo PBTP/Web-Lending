@@ -12,7 +12,9 @@
     width: 100%;
     position: relative;
     padding-bottom: 70px;
-
+    @include media(phone) {
+      padding-bottom: 28px;
+    }
     > .LendingApplyHeader {
       color: #000;
       font-size: 60px;
@@ -55,18 +57,27 @@
       }
     }
 
-    > .LendingImage {
+    > .LendingApplyPcImage {
       position: absolute;
       right: 0;
       bottom: 0;
       width: 369px;
       height: 341px;
+      display: block;
       @include media(phone) {
-        position: relative;
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
-        float: right;
+        display: none;
+      }
+    }
+    .LendingApplyMobileImageWrapper {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      width: 100%;
+    }
+    .LendingApplyMobileImage {
+      display: none;
+      @include media(phone) {
+        display: block;
         width: 181px;
         height: 160px;
       }

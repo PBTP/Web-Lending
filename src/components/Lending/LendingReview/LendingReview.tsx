@@ -19,7 +19,10 @@ const LendingReview = () => {
           </LendingFlexContent.Description>
         </div>
         <LendingFlexContent.Image>
-          <StaticImage src="../../../images/lending/lending_reservation_1.png" alt="LendingReservation1" />
+          <StaticImage
+            src="../../../images/lending/lending_review_mbReview.png"
+            alt="LendingReservation1-mobile"
+          />
         </LendingFlexContent.Image>
       </LendingFlexContent>
     </section>

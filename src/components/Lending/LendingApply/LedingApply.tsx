@@ -18,8 +18,15 @@ const LedingApply = () => {
         <StaticImage
           src="../../../images/lending/lending_apply_image.png"
           alt="LendingApplyImage"
-          className={styles.LendingImage}
+          className={styles.LendingApplyPcImage}
         />
+        <div className={styles.LendingApplyMobileImageWrapper}>
+          <StaticImage
+            src="../../../images/lending/lending_apply_image.png"
+            alt="LendingApplyImage"
+            className={styles.LendingApplyMobileImage}
+          />
+        </div>
       </main>
     </section>
   );
