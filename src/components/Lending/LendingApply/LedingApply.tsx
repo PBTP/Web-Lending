@@ -1,6 +1,6 @@
-import React from 'react';
-import * as styles from './LendingApply.module.scss';
-import { StaticImage } from 'gatsby-plugin-image';
+import React from "react";
+import * as styles from "./LendingApply.module.scss";
+import { StaticImage } from "gatsby-plugin-image";
 
 const LedingApply = () => {
   return (

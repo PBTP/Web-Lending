@@ -1,11 +1,10 @@
-import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
-import React from 'react';
-import * as styles from './Nav.module.scss';
-import NavbarMenuLink from '../../common/NavbarMenuLink';
+import { Link } from "gatsby";
+import { StaticImage } from "gatsby-plugin-image";
+import React from "react";
+import * as styles from "./Nav.module.scss";
+import NavbarMenuLink from "../../common/NavbarMenuLink";
 
 const Nav = () => {
-  
   return (
     <nav className={styles.NavContainer}>
       <div className={styles.NavWrapper}>

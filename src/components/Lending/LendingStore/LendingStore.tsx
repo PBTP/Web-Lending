@@ -1,9 +1,9 @@
 import React from 'react';
 import * as styles from './LendingStore.module.scss';
 import LendingFlexContent from '../BaseComponents/LendingFlexContent';
-import { StaticImage } from 'gatsby-plugin-image';
-import ReviewMbSvg from "../../../images/lending/lending_review_mbReview.inline.svg";
+import ReviewMbSvg from '../../../images/lending/lending_review_mbReview.inline.svg';
 import ReviewPcSvg from '../../../images/lending/lending_review_pcReview.inline.svg';
+
 const LendingStore = () => {
   return (
     <section className={styles.LendingStoreWrapper}>
@@ -19,15 +19,11 @@ const LendingStore = () => {
             <div>사진과 리뷰로 확인해보세요</div>
           </LendingFlexContent.Description>
         </div>
-          <div className={styles.LendingStoreMbImageWrapper}>
-            <ReviewMbSvg />
-          </div>
+        <div className={styles.LendingStoreMbImageWrapper}>
+          <ReviewMbSvg />
+        </div>
         <LendingFlexContent.Image>
-          {/* <StaticImage
-            src="../../../images/lending/lending_reservation_1.png"
-            alt="LendingReservation1"
-          /> */}
-          <ReviewPcSvg/>
+          <ReviewPcSvg />
         </LendingFlexContent.Image>
       </LendingFlexContent>
     </section>
