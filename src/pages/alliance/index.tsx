@@ -7,13 +7,19 @@ import Nav from "../../components/Layout/Nav/Nav";
 import AllianceContact from "../../components/Alliance/AllianceContact/AllianceContact";
 import Layout from "../../components/Layout/Layout";
 
-const IndexPage: React.FC<PageProps> = () => {
+type CustomLocationType = {
+  shouldScrollToContact: boolean;
+};
+
+const IndexPage: React.FC<PageProps> = ({ location }) => {
+  const state = location.state as CustomLocationType;
+
   return (
     <Layout>
       <LedingApply />
       <AllianceMain />
       <AllianceBenefit />
-      <AllianceContact />
+      <AllianceContact shouldScrollToContact={state.shouldScrollToContact} />
     </Layout>
   );
 };

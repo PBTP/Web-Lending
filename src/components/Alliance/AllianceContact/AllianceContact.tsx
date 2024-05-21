@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as styles from "./AllianceContact.module.scss";
 import AllianceInputField from "../BaseComponents/AllianceInputField";
 import { StaticImage } from "gatsby-plugin-image";
@@ -12,7 +12,11 @@ const PlatformList = [
   "전화예약",
 ];
 
-const AllianceContact = () => {
+type AllianceContactProps = {
+  shouldScrollToContact: boolean;
+};
+
+const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
   const [contactInfo, setContactInfo] = useState({
     name: "",
     email: "",
@@ -58,8 +62,22 @@ const AllianceContact = () => {
     if (!validatedBenefitButton) return;
   };
 
+  const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!allianceContactWrapperRef || !allianceContactWrapperRef.current)
+      return;
+
+    if (shouldScrollToContact) {
+      allianceContactWrapperRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [allianceContactWrapperRef]);
+
   return (
-    <section className={styles.AllianceContactWrapper}>
+    <section
+      ref={allianceContactWrapperRef}
+      className={styles.AllianceContactWrapper}
+    >
       <div className={styles.AllianceContactHeader}>
         <div className={styles.AllianceContactTitle}>Contact</div>
         <div className={styles.AllianceContactSubTitle}>
