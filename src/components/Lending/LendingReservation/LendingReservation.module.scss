@@ -31,5 +31,13 @@
     display: flex;
     justify-content: center;
     gap: 24px;
+    >img,svg {
+      width: 250px;
+      height: 507px;
+      @include media(phone) {
+        width: 105px;
+        height: 253px;
+      }
+    }
   }
 }

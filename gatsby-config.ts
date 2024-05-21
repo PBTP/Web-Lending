@@ -11,23 +11,23 @@ const config: GatsbyConfig = {
   // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
   plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
+    'gatsby-plugin-sass',
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
     {
-      resolve: "gatsby-plugin-root-import",
+      resolve: 'gatsby-plugin-root-import',
       options: {
-        root: path.join(__dirname, "src"),
+        root: path.join(__dirname, 'src'),
       },
     },
     {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          "G-RKBCHRSYZL", // Google Analytics / GA
+          'G-RKBCHRSYZL', // Google Analytics / GA
         ],
         gtagConfig: {
-          optimize_id: "GTM-T9FW9RST", // Google Tag Manager / GTA
+          optimize_id: 'GTM-T9FW9RST', // Google Tag Manager / GTA
           anonymize_ip: true,
           cookie_expires: 1000,
         },
@@ -36,6 +36,14 @@ const config: GatsbyConfig = {
           respectDNT: true,
           //origin: "https://www.googletagmanager.com",
           delayOnRouteUpdate: 1000,
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /\.inline\.svg$/,
         },
       },
     },

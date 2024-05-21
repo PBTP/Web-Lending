@@ -39,12 +39,8 @@
 }
 
 .Image {
-  img {
     display: block;
-  }
   @include media(phone) {
-    img {
-      display: none;
-    }
+    display: none;
   }
 }
