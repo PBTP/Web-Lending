@@ -3,15 +3,18 @@ import * as styles from './AllianceContact.module.scss';
 import AllianceInputField from '../BaseComponents/AllianceInputField';
 import { StaticImage } from 'gatsby-plugin-image';
 import AllianceDropdown from '../AllianceDropdown/AllianceDropdown';
+import { ContactInfoType } from '../../../api/types';
+import allianceApi from '../../../api/alliance';
 
 const PlatformList = ['업체 홈페이지', '네이버 블로그', '인스타그램', '구글 폼', '전화예약'];
+const { applyContactInfo } = allianceApi();
 
 type AllianceContactProps = {
   shouldScrollToContact: boolean;
 };
 
 const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
-  const [contactInfo, setContactInfo] = useState({
+  const [contactInfo, setContactInfo] = useState<ContactInfoType>({
     name: '',
     email: '',
     phone: '',
@@ -39,41 +42,22 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
   };
 
   const [selectedInterview, setSelectedInterview] = useState<boolean>(false);
-  const [selectedDistrict, setSelectedDistrict] = useState<string>('');
+  const [region, setRegion] = useState<string>('');
 
   const { snsLink, ...validatedContactInfo } = contactInfo;
   const validatedBenefitButton =
     Object.values(validatedContactInfo).every((info) => info.length > 0) &&
     selectedPlatformList.length > 0 &&
-    selectedDistrict.length > 0;
+    region.length > 0;
 
-  const handleBenefitButton = async () => {
+  const handleBenefitButton = () => {
     if (!validatedBenefitButton) return;
-
-    try {
-      const data = await fetch('https://api.mgmg.life/pre-registration-survey', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: contactInfo.name,
-          email: contactInfo.email,
-          phoneNumber: contactInfo.phone,
-          businessName: contactInfo.store,
-          region: selectedDistrict,
-          reservationPlatform: selectedPlatformList,
-          snsContact: contactInfo.snsLink,
-          phoneInterview: selectedInterview,
-        }),
-      })
-        .then(() => {
-          alert('등록이 완료되었습니다.');
-        })
-        .catch((e) => {
-          throw Error(e);
-        });
-      console.log(data);
-    } catch (e) {
-      console.log(e);
-    }
+    applyContactInfo({
+      contactInfo,
+      region: region,
+      reservationPlatform: selectedPlatformList,
+      shouldInterview: selectedInterview,
+    });
   };
 
   const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
@@ -125,7 +109,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
           name="store"
         />
 
-        <AllianceDropdown selectedDistrict={selectedDistrict} setSelectedDistrict={setSelectedDistrict} />
+        <AllianceDropdown region={region} setRegion={setRegion} />
 
         <div className={styles.AllianceContactPlatformContent}>
           <div className={styles.AllianceContactPlatformHeader}>
@@ -141,9 +125,15 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
                 className={styles.AllianceContactPlatformField}
               >
                 {selectedPlatformList.includes(platfrom) ? (
-                  <StaticImage src="../../../images/alliance/alliance_contact_checked.svg" alt="checked" />
+                  <StaticImage
+                    src="../../../images/alliance/alliance_contact_checked.svg"
+                    alt="checked"
+                  />
                 ) : (
-                  <StaticImage src="../../../images/alliance/alliance_contact_un_checked.svg" alt="unChecked" />
+                  <StaticImage
+                    src="../../../images/alliance/alliance_contact_un_checked.svg"
+                    alt="unChecked"
+                  />
                 )}
                 <div className={styles.AllianceContactPlatformName}>{platfrom}</div>
               </div>
@@ -161,7 +151,10 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
         />
 
         <div className={styles.AllianceContactInterviewContent}>
-          <div onClick={() => setSelectedInterview((prev) => !prev)} className={styles.AllianceContactInterviewLine}>
+          <div
+            onClick={() => setSelectedInterview((prev) => !prev)}
+            className={styles.AllianceContactInterviewLine}
+          >
             {selectedInterview ? (
               <StaticImage
                 width={24}
@@ -180,7 +173,9 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
               />
             )}
             <div className={styles.AllianceContactInterviewHeader}>
-              <div className={styles.AllianceContactInterviewTitle}>앱 개발을 위한 전화 인터뷰 가능</div>
+              <div className={styles.AllianceContactInterviewTitle}>
+                앱 개발을 위한 전화 인터뷰 가능
+              </div>
               <div className={styles.AllianceContactInterviewSubTitle}>
                 *인터뷰시 1개월간 메인화면에 무료 광고를 제공합니다.
               </div>
