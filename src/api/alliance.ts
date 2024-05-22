@@ -10,8 +10,11 @@ const allianceApi = () => {
     const formatedPlatforms = reservationPlatform.join(',');
 
     try {
-      await fetch('https://dev.mgmg.life/pre-registration-survey', {
+      await fetch(`${process.env.GATSBY_API_URL}/pre-registration-survey`, {
         method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           name: contactInfo.name,
           email: contactInfo.email,
@@ -22,7 +25,6 @@ const allianceApi = () => {
           snsContact: contactInfo.snsLink,
           phoneInterview: shouldInterview,
         }),
-        mode: 'no-cors',
       })
         .then((res) => {
           console.log(res);

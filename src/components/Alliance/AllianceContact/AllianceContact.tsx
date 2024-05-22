@@ -108,9 +108,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
           placeholder="몽글몽글 2호점"
           name="store"
         />
-
         <AllianceDropdown region={region} setRegion={setRegion} />
-
         <div className={styles.AllianceContactPlatformContent}>
           <div className={styles.AllianceContactPlatformHeader}>
             <span className={styles.AllianceContactPlatformTitle}>현재 이용 중인 예약 플랫폼</span>
@@ -140,7 +138,6 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
             ))}
           </div>
         </div>
-
         <AllianceInputField
           title="SNS 주소"
           value={contactInfo.snsLink}
@@ -149,7 +146,6 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
           placeholder="홈페이지, 블로그, 인스타그램 등"
           name="snsLink"
         />
-
         <div className={styles.AllianceContactInterviewContent}>
           <div
             onClick={() => setSelectedInterview((prev) => !prev)}
