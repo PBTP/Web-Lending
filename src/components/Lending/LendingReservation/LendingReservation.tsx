@@ -1,9 +1,9 @@
 import React from 'react';
 import * as styles from './LendingReservation.module.scss';
-import { StaticImage } from 'gatsby-plugin-image';
-import Reservation1 from "../../../images/lending/lending_reservation_1.inline.svg";
+import Reservation1 from '../../../images/lending/lending_reservation_1.inline.svg';
 import Reservation2 from '../../../images/lending/lending_reservation_2.inline.svg';
 import Reservation3 from '../../../images/lending/lending_reservation_3.inline.svg';
+
 const LendingReservation = () => {
   return (
     <section className={styles.LendingReservationWrapper}>
@@ -18,18 +18,6 @@ const LendingReservation = () => {
         <Reservation1 />
         <Reservation2 />
         <Reservation3 />
-        {/* <StaticImage
-          src="../../../images/lending/lending_reservation_1.png"
-          alt="LendingReservation1"
-        />
-        <StaticImage
-          src="../../../images/lending/lending_reservation_2.png"
-          alt="LendingReservation2"
-        />
-        <StaticImage
-          src="../../../images/lending/lending_reservation_3.png"
-          alt="LendingReservation3"
-        /> */}
       </div>
     </section>
   );

@@ -3,9 +3,9 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import * as styles from './Nav.module.scss';
 import NavbarMenuLink from '../../common/NavbarMenuLink';
+import ApplyLink from '../../common/ApplyLink';
 
 const Nav = () => {
-  
   return (
     <nav className={styles.NavContainer}>
       <div className={styles.NavWrapper}>
@@ -25,9 +25,7 @@ const Nav = () => {
               </li>
             </div>
             <li>
-              <button className={styles.BenefitButton}>
-                혜택받고 등록하기
-              </button>
+              <ApplyLink className={styles.BenefitButton} />
             </li>
           </ul>
         </div>

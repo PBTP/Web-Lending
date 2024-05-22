@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as styles from './AllianceContact.module.scss';
 import AllianceInputField from '../BaseComponents/AllianceInputField';
 import { StaticImage } from 'gatsby-plugin-image';
@@ -6,7 +6,11 @@ import AllianceDropdown from '../AllianceDropdown/AllianceDropdown';
 
 const PlatformList = ['업체 홈페이지', '네이버 블로그', '인스타그램', '구글 폼', '전화예약'];
 
-const AllianceContact = () => {
+type AllianceContactProps = {
+  shouldScrollToContact: boolean;
+};
+
+const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
   const [contactInfo, setContactInfo] = useState({
     name: '',
     email: '',
@@ -43,13 +47,47 @@ const AllianceContact = () => {
     selectedPlatformList.length > 0 &&
     selectedDistrict.length > 0;
 
-  const handleBenefitButton = () => {
-    //api로직 추가
+  const handleBenefitButton = async () => {
     if (!validatedBenefitButton) return;
+
+    try {
+      const data = await fetch('https://api.mgmg.life/pre-registration-survey', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: contactInfo.name,
+          email: contactInfo.email,
+          phoneNumber: contactInfo.phone,
+          businessName: contactInfo.store,
+          region: selectedDistrict,
+          reservationPlatform: selectedPlatformList,
+          snsContact: contactInfo.snsLink,
+          phoneInterview: selectedInterview,
+        }),
+      })
+        .then(() => {
+          alert('등록이 완료되었습니다.');
+        })
+        .catch((e) => {
+          throw Error(e);
+        });
+      console.log(data);
+    } catch (e) {
+      console.log(e);
+    }
   };
 
+  const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!allianceContactWrapperRef || !allianceContactWrapperRef.current) return;
+
+    if (shouldScrollToContact) {
+      allianceContactWrapperRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [allianceContactWrapperRef]);
+
   return (
-    <section className={styles.AllianceContactWrapper}>
+    <section ref={allianceContactWrapperRef} className={styles.AllianceContactWrapper}>
       <div className={styles.AllianceContactHeader}>
         <div className={styles.AllianceContactTitle}>Contact</div>
         <div className={styles.AllianceContactSubTitle}>지금 등록하고 혜택받기</div>
@@ -149,7 +187,11 @@ const AllianceContact = () => {
             </div>
           </div>
         </div>
-        <button className={styles.AllianceContactButton} disabled={!validatedBenefitButton}>
+        <button
+          onClick={handleBenefitButton}
+          className={styles.AllianceContactButton}
+          disabled={!validatedBenefitButton}
+        >
           혜택받고 등록하기
         </button>
       </div>
