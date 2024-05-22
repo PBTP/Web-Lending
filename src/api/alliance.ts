@@ -10,7 +10,7 @@ const allianceApi = () => {
     const formatedPlatforms = reservationPlatform.join(',');
 
     try {
-      await fetch('https://api.mgmg.life/pre-registration-survey', {
+      await fetch('https://dev.mgmg.life/pre-registration-survey', {
         method: 'POST',
         body: JSON.stringify({
           name: contactInfo.name,
@@ -24,7 +24,8 @@ const allianceApi = () => {
         }),
         mode: 'no-cors',
       })
-        .then(() => {
+        .then((res) => {
+          console.log(res);
           alert('등록이 완료되었습니다.');
         })
         .catch((e) => {
