@@ -10,7 +10,7 @@ const allianceApi = () => {
     const formatedPlatforms = reservationPlatform.join(',');
 
     try {
-      await fetch(`${process.env.GATSBY_API_URL}/pre-registration-survey`, {
+      await fetch(`https://api.mgmg.life/pre-registration-survey`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
