@@ -14,7 +14,11 @@ const Layout = ({ children }: LayoutProps) => {
       <Nav />
       {children}
       <Footer />
+      {
+        typeof window !== 'undefined' &&
+        window.location.pathname === '/' &&
       <ApplyLink className={styles.LayoutMobileApplyLink} />
+      }
     </div>
   );
 };
