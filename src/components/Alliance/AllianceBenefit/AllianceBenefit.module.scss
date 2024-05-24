@@ -1,10 +1,10 @@
-@import "/src/styles/responsive.scss";
+@import '/src/styles/responsive.scss';
 
 .AllianceBenefitWrapper {
   padding: 116px 176px;
   background-color: #688edc;
 
-  @include media(phone) {
+  @include media(phone, tablet) {
     padding: 40px 20px;
   }
 
@@ -15,7 +15,7 @@
     font-weight: 700;
     line-height: 30px;
 
-    @include media(phone) {
+    @include media(phone, tablet) {
       font-size: 17px;
       font-weight: 600;
       line-height: 24px;
@@ -30,7 +30,7 @@
     line-height: 48px;
     margin-top: 30px;
 
-    @include media(phone) {
+    @include media(phone, tablet) {
       font-size: 24px;
       font-weight: 700;
       line-height: 32px;
@@ -46,7 +46,7 @@
     justify-content: center;
     gap: 20px;
 
-    @include media(phone) {
+    @include media(phone, tablet) {
       flex-direction: column;
       margin-top: 40px;
       gap: 24px;

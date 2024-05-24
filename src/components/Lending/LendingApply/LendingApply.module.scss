@@ -4,7 +4,7 @@
   background-color: #fefdee;
   padding: 80px 215px 114px 176px;
 
-  @include media(phone) {
+  @include media(phone, tablet) {
     padding: 20px;
   }
 
@@ -14,7 +14,7 @@
     width: 100%;
     position: relative;
     padding-bottom: 70px;
-    @include media(phone) {
+    @include media(phone, tablet) {
       padding-bottom: 28px;
     }
     > .LendingApplyHeader {
@@ -23,7 +23,7 @@
       font-weight: 700;
       line-height: 80px;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         font-size: 24px;
         line-height: 32px; /* 133.333% */
       }
@@ -36,7 +36,7 @@
       font-weight: 500;
       line-height: 36px;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         font-size: 14px;
         font-weight: 400;
         line-height: 20px; /* 142.857% */
@@ -55,7 +55,7 @@
       font-weight: 700;
       line-height: 32px;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         display: none;
       }
     }
@@ -68,7 +68,7 @@
       height: 341px;
       display: block;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         display: none;
       }
     }
@@ -83,7 +83,7 @@
     .LendingApplyMobileImage {
       display: none;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         display: block;
         width: 181px;
         height: 160px;

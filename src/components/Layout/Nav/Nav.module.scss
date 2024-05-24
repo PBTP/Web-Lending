@@ -1,11 +1,11 @@
-@import "/src/styles/theme.scss";
-@import "/src/styles/responsive.scss";
+@import '/src/styles/theme.scss';
+@import '/src/styles/responsive.scss';
 
 .NavContainer {
   width: 100%;
 
   background: #f6f4dc;
-  @include media(phone) {
+  @include media(phone, tablet) {
     background: #fefdee;
   }
   .NavWrapper {
@@ -13,7 +13,7 @@
     margin: 0 auto;
     display: flex;
     align-items: center;
-    @include media(phone) {
+    @include media(phone, tablet) {
       display: flex;
       justify-content: space-between;
       padding: 20px;
@@ -23,7 +23,7 @@
     .MenuWrapper {
       margin-left: 50px;
       width: 100%;
-      @include media(phone) {
+      @include media(phone, tablet) {
         width: auto;
         margin-left: 0;
       }
@@ -37,7 +37,7 @@
         align-items: center;
         li:nth-child(2) {
           margin-left: 53px;
-          @include media (phone) {
+          @include media(phone) {
             margin-left: 0;
           }
         }
@@ -46,7 +46,7 @@
           cursor: pointer;
           font-size: 24px;
           font-weight: 400;
-          @include media(phone) {
+          @include media(phone, tablet) {
             font-size: 14px;
             font-weight: 600;
           }
@@ -58,7 +58,7 @@
         background-color: $primary;
         color: #fff;
         margin-right: 30px;
-        @include media(phone) {
+        @include media(phone, tablet) {
           display: none;
         }
       }
