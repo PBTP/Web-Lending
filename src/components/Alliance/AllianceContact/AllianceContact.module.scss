@@ -1,10 +1,10 @@
-@import "/src/styles/responsive.scss";
+@import '/src/styles/responsive.scss';
 
 .AllianceContactWrapper {
   background-color: #fefdee;
   padding: 120px 0px 100px 0px;
 
-  @include media(phone) {
+  @include media(phone, tablet) {
     padding: 80px 20px 60px;
   }
 
@@ -17,7 +17,7 @@
       font-size: 22px;
       line-height: 30px;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         font-size: 17px;
         font-weight: 600;
         line-height: 24px;
@@ -29,7 +29,7 @@
       font-size: 36px;
       line-height: 48px;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         font-size: 24px;
         line-height: 32px;
       }
@@ -44,7 +44,7 @@
     margin-top: 80px;
     max-width: 460px;
 
-    @include media(phone) {
+    @include media(phone, tablet) {
       margin-top: 48px;
     }
 
@@ -83,7 +83,7 @@
         grid-row-gap: 16px;
         grid-template-columns: repeat(3, minmax(0, 1fr));
 
-        @include media(phone) {
+        @include media(phone, tablet) {
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
@@ -141,7 +141,7 @@
       line-height: 32px;
       transition: background-color 0.3s;
 
-      @include media(phone) {
+      @include media(phone, tablet) {
         margin-top: 48px;
         font-size: 17px;
         font-weight: 600;

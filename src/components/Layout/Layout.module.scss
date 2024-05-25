@@ -1,12 +1,12 @@
-@import "./src/styles/responsive.scss";
+@import './src/styles/responsive.scss';
 .LayoutContainer {
-  @include media(phone) {
+  @include media(phone, tablet) {
     background: #fefdee;
   }
 
   > .LayoutMobileApplyLink {
     display: none;
-    @include media(phone) {
+    @include media(phone, tablet) {
       display: block;
       position: fixed;
       bottom: 34px;

@@ -3,7 +3,7 @@
 .LendingReservationWrapper {
   background-color: #fff;
   padding-top: 86px;
-  @include media(phone) {
+  @include media(phone, tablet) {
     background-color: #fefdee;
     padding: 20px;
   }
@@ -17,7 +17,7 @@
     > div > br {
       display: none;
     }
-    @include media(phone) {
+    @include media(phone, tablet) {
       font-size: 24px;
       text-align: left;
       line-height: 32px;
@@ -31,10 +31,11 @@
     display: flex;
     justify-content: center;
     gap: 24px;
-    >img,svg {
+    > img,
+    svg {
       width: 250px;
       height: 507px;
-      @include media(phone) {
+      @include media(phone, tablet) {
         width: 105px;
         height: 253px;
       }

@@ -1,11 +1,11 @@
-@import "/src/styles/responsive.scss";
+@import '/src/styles/responsive.scss';
 
 .FooterWrapper {
   background-color: #fff;
   padding: 60px 176px;
   color: #535961;
 
-  @include media(phone) {
+  @include media(phone, tablet) {
     padding: 24px 20px;
   }
 
@@ -52,7 +52,7 @@
     display: flex;
     gap: 16px;
 
-    @include media(phone) {
+    @include media(phone, tablet) {
       font-size: 11px;
       font-weight: 500;
       line-height: 16px;

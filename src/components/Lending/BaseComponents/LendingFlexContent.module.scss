@@ -1,13 +1,12 @@
-@import "./src/styles/responsive.scss";
+@import './src/styles/responsive.scss';
 
 .LendingFlexContent {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  @include media(phone) {
+  @include media(phone, tablet) {
     display: block;
   }
-
 }
 
 .Header {
@@ -17,7 +16,7 @@
   line-height: 68px;
   margin-bottom: 24px;
 
-  @include media(phone) {
+  @include media(phone, tablet) {
     font-size: 24px;
     line-height: 32px; /* 133.333% */
   }
@@ -27,8 +26,8 @@
   color: #000;
   font-size: 24px;
   line-height: 32px;
-  
-  @include media(phone) {
+
+  @include media(phone, tablet) {
     > div {
       font-size: 14px;
       font-style: normal;
@@ -39,8 +38,8 @@
 }
 
 .Image {
-    display: block;
-  @include media(phone) {
+  display: block;
+  @include media(phone, tablet) {
     display: none;
   }
 }
