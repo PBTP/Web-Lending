@@ -1,4 +1,4 @@
-@import "./theme.scss";
+@import './theme.scss';
 @mixin phone {
   @media (max-width: $mobileWidth) {
     @content;
