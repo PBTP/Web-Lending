@@ -19,4 +19,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>몽글몽글</title>;
+export const Head: HeadFC = () => <title>몽글</title>;
