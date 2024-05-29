@@ -16,6 +16,7 @@ const config: GatsbyConfig = {
     'gatsby-plugin-sass',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
+    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-sharp',
       options: {
@@ -58,7 +59,15 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/icon.png',
+        icon: 'src/images/logo.png',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://mgmg.life/',
+        sitemap: 'https://mgmg.life/sitemap-index.xml',
+        policy: [{ userAgent: '*', allow: '/' }],
       },
     },
   ],
