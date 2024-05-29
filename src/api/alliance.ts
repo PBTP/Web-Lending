@@ -1,4 +1,6 @@
+import axios from 'axios';
 import { ApplyContactInfoReq } from './types';
+import { requestApi } from './instance';
 
 const allianceApi = () => {
   const applyContactInfo = async ({
@@ -10,12 +12,8 @@ const allianceApi = () => {
     const formatedPlatforms = reservationPlatform.join(',');
 
     try {
-      await fetch(`https://api.mgmg.life/pre-registration-survey`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+      await requestApi
+        .post(`pre-registration-survey`, {
           name: contactInfo.name,
           email: contactInfo.email,
           phoneNumber: contactInfo.phone,
@@ -24,11 +22,9 @@ const allianceApi = () => {
           reservationPlatform: formatedPlatforms,
           snsContact: contactInfo.snsLink,
           phoneInterview: shouldInterview,
-        }),
-      })
+        })
         .then((res) => {
           if (res.status >= 400) throw Error(res.statusText);
-          console.log(res);
           alert('등록이 완료되었습니다.');
         })
         .catch((e) => {
