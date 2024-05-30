@@ -33,10 +33,10 @@ const config: GatsbyConfig = {
       resolve: `gatsby-plugin-google-gtag`,
       options: {
         trackingIds: [
-          'G-RKBCHRSYZL', // Google Analytics / GA
+          process.env.GA_ID, // Google Analytics / GA
         ],
         gtagConfig: {
-          optimize_id: 'GTM-T9FW9RST', // Google Tag Manager / GTA
+          optimize_id: process.env.GTM_ID, // Google Tag Manager / GTA
           anonymize_ip: true,
           cookie_expires: 1000,
         },
