@@ -13,6 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: .env setting
+        run: |
+          echo -e "API_URL=${{secrets.API_URL}}\nGA_ID=${{secrets.GA_ID}}\nGTM_ID=${{secrets.GTM_ID}}" >> .env.production
+
       - name: Install Dependencies
         run: npm install
 
