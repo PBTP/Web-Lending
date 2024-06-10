@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { HeadFC, PageProps } from 'gatsby';
-import LedingApply from '../../components/Lending/LendingApply/LedingApply';
-import AllianceBenefit from '../../components/Alliance/AllianceBenefit/AllianceBenefit';
-import AllianceMain from '../../components/Alliance/AllianceMain/AllianceMain';
-import AllianceContact from '../../components/Alliance/AllianceContact/AllianceContact';
-import Layout from '../../components/Layout/Layout';
+import LedingApply from '@components/Lending/LendingApply/LedingApply';
+import AllianceBenefit from '@components/Alliance/AllianceBenefit/AllianceBenefit';
+import AllianceMain from '@components/Alliance/AllianceMain/AllianceMain';
+import AllianceContact from '@components/Alliance/AllianceContact/AllianceContact';
+import Layout from '@components/Layout/Layout';
 
 type CustomLocationType = {
   shouldScrollToContact: boolean;

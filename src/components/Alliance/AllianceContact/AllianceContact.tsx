@@ -3,8 +3,8 @@ import * as styles from './AllianceContact.module.scss';
 import AllianceInputField from '../BaseComponents/AllianceInputField';
 import { StaticImage } from 'gatsby-plugin-image';
 import AllianceDropdown from '../AllianceDropdown/AllianceDropdown';
-import { ContactInfoType } from '../../../api/types';
-import allianceApi from '../../../api/alliance';
+import { ContactInfoType } from '@api/types';
+import allianceApi from '@api/alliance';
 
 const PlatformList = ['업체 홈페이지', '네이버 블로그', '인스타그램', '구글 폼', '전화예약'];
 const { applyContactInfo } = allianceApi();
