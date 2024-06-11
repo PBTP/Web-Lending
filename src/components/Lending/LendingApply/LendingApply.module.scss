@@ -59,17 +59,18 @@
         display: none;
       }
     }
-
-    > .LendingApplyPcImage {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: 369px;
-      height: 341px;
-      display: block;
-
-      @include media(phone, tablet) {
-        display: none;
+    .LendingApplyPcImageWrapper {
+      > .LendingApplyPcImage {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 369px;
+        height: 341px;
+        display: block;
+  
+        @include media(phone, tablet) {
+          display: none;
+        }
       }
     }
 

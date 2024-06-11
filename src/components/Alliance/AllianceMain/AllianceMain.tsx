@@ -13,7 +13,7 @@ const AllianceMain = () => {
       <div className={styles.AllianceMainSubTitle}>
         예약 일정 관리와 고객 정보를 편하게 관리 할 수 있어요.
       </div>
-      <div className={styles.AllianceMainBookingContent}>
+      <div className={styles.AllianceMainBookingContent} data-aos="fade-up">
         <div className={styles.AllianceMainBooking}>
           <StaticImage
             src="../../../images/alliance/alliance_main_content_1.png"
@@ -31,7 +31,7 @@ const AllianceMain = () => {
           />
         </div>
       </div>
-      <div className={styles.AllianceMainScheduleContent}>
+      <div className={styles.AllianceMainScheduleContent} data-aos="fade-up">
         <div className={styles.AllianceMainSchedule}>
           <StaticImage
             src="../../../images/alliance/alliance_main_content_3.png"
@@ -46,7 +46,7 @@ const AllianceMain = () => {
         </div>
         <div className={styles.AllianceMainScheduleText}>캘린더로 한눈에 보는 스케쥴</div>
       </div>
-      <div className={styles.AllianceMainManageContent}>
+      <div className={styles.AllianceMainManageContent} data-aos="fade-up">
         <div className={styles.AllianceMainManageText}>
           <div>카카오톡, 문자, 전화, 인스타 DM...</div>
           <div>복잡한 연락은 그만</div>
