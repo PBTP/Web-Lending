@@ -1,10 +1,9 @@
 import React from 'react';
 import * as styles from './LendingApply.module.scss';
 import { StaticImage } from 'gatsby-plugin-image';
-import ApplyLink from '../../common/ApplyLink';
+import ApplyLink from '../../Common/ApplyLink';
 
 const LedingApply = () => {
-  
   return (
     <section className={styles.LendingApplyWrapper}>
       <main className={styles.LendingApplyContainer}>

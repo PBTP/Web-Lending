@@ -70,6 +70,20 @@ const config: GatsbyConfig = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          '@src': 'src',
+          '@api': 'src/api',
+          '@components': 'src/components',
+          '@images': 'src/images',
+          '@pages': 'src/pages',
+          '@styles': 'src/styles',
+        },
+        extensions: [],
+      },
+    },
   ],
 };
 

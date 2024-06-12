@@ -3,7 +3,7 @@ import Nav from './Nav/Nav';
 import * as styles from './Layout.module.scss';
 import Footer from './Footer/Footer';
 import { Link } from 'gatsby';
-import ApplyLink from '../common/ApplyLink';
+import ApplyLink from '../Common/ApplyLink';
 type LayoutProps = {
   children: React.ReactNode;
 };
@@ -14,11 +14,9 @@ const Layout = ({ children }: LayoutProps) => {
       <Nav />
       {children}
       <Footer />
-      {
-        typeof window !== 'undefined' &&
-        window.location.pathname === '/' &&
-      <ApplyLink className={styles.LayoutMobileApplyLink} />
-      }
+      {typeof window !== 'undefined' && window.location.pathname === '/' && (
+        <ApplyLink className={styles.LayoutMobileApplyLink} />
+      )}
     </div>
   );
 };

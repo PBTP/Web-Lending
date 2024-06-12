@@ -1,8 +1,8 @@
 import React from 'react';
 import * as styles from './LendingStore.module.scss';
 import LendingFlexContent from '../BaseComponents/LendingFlexContent';
-import ReviewMbSvg from '../../../images/lending/lending_review_mbReview.inline.svg';
-import ReviewPcSvg from '../../../images/lending/lending_review_pcReview.inline.svg';
+import ReviewMbSvg from '@images/lending/lending_review_mbReview.inline.svg';
+import ReviewPcSvg from '@images/lending/lending_review_pcReview.inline.svg';
 
 const LendingStore = () => {
   return (

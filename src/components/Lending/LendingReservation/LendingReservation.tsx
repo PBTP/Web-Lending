@@ -1,8 +1,8 @@
 import React from 'react';
 import * as styles from './LendingReservation.module.scss';
-import Reservation1 from '../../../images/lending/lending_reservation_1.inline.svg';
-import Reservation2 from '../../../images/lending/lending_reservation_2.inline.svg';
-import Reservation3 from '../../../images/lending/lending_reservation_3.inline.svg';
+import Reservation1 from '@images/lending/lending_reservation_1.inline.svg';
+import Reservation2 from '@images/lending/lending_reservation_2.inline.svg';
+import Reservation3 from '@images/lending/lending_reservation_3.inline.svg';
 
 const LendingReservation = () => {
   return (

@@ -2,8 +2,8 @@ import { Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import * as styles from './Nav.module.scss';
-import NavbarMenuLink from '../../common/NavbarMenuLink';
-import ApplyLink from '../../common/ApplyLink';
+import NavbarMenuLink from '@components/Common/NavbarMenuLink';
+import ApplyLink from '@components/Common/ApplyLink';
 
 const Nav = () => {
   return (
@@ -25,11 +25,9 @@ const Nav = () => {
               </li>
             </div>
             <li>
-              {
-                typeof window !== 'undefined' &&
-                window.location.pathname === '/' &&
-              <ApplyLink className={styles.BenefitButton} />
-              }
+              {typeof window !== 'undefined' && window.location.pathname === '/' && (
+                <ApplyLink className={styles.BenefitButton} />
+              )}
             </li>
           </ul>
         </div>
