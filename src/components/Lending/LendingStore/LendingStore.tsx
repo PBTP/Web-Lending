@@ -19,11 +19,11 @@ const LendingStore = () => {
             <div>사진과 리뷰로 확인해보세요</div>
           </LendingFlexContent.Description>
         </div>
-        <div className={styles.LendingStoreMbImageWrapper}>
+        <div className={styles.LendingStoreMbImageWrapper} data-aos="fade-up">
           <ReviewMbSvg />
         </div>
         <LendingFlexContent.Image>
-          <ReviewPcSvg />
+          <ReviewPcSvg data-aos="fade-left" />
         </LendingFlexContent.Image>
       </LendingFlexContent>
     </section>

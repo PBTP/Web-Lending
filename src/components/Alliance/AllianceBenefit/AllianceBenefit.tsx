@@ -6,7 +6,7 @@ const AllianceBenefit = () => {
     <section className={styles.AllianceBenefitWrapper}>
       <div className={styles.AllianceBenefitTitle}>Benefit</div>
       <div className={styles.AllianceBenefitSubTitle}>얼리버드 등록을 놓치면 안되는 이유</div>
-      <div className={styles.AllianceBenefitContainer}>
+      <div className={styles.AllianceBenefitContainer} data-aos="fade-up">
         <div className={styles.AllianceBenefitContent}>
           <div className={styles.AllianceBenefitBadge}>얼리버드 등록 업체만!</div>
           <div className={styles.AllianceBenefitText}>

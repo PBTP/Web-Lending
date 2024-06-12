@@ -18,12 +18,14 @@ const LedingApply = () => {
         {typeof window !== 'undefined' && window.location.pathname === '/' && (
           <ApplyLink className={styles.LendingApplyButton} />
         )}
-        <StaticImage
-          src="../../../images/lending/lending_apply_image.png"
-          alt="LendingApplyImage"
-          className={styles.LendingApplyPcImage}
-        />
-        <div className={styles.LendingApplyMobileImageWrapper}>
+        <div className={styles.LendingApplyPcImageWrapper} data-aos="fade-left">
+          <StaticImage
+            src="../../../images/lending/lending_apply_image.png"
+            alt="LendingApplyImage"
+            className={styles.LendingApplyPcImage}
+          />
+        </div>
+        <div className={styles.LendingApplyMobileImageWrapper} data-aos="fade-left">
           <StaticImage
             src="../../../images/lending/lending_apply_image.png"
             alt="LendingApplyImage"

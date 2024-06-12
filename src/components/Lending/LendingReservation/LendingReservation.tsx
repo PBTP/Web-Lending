@@ -14,7 +14,7 @@ const LendingReservation = () => {
         </div>
         <div>한번에 예약하세요</div>
       </div>
-      <div className={styles.LendingReservationImage}>
+      <div className={styles.LendingReservationImage} data-aos="fade-up">
         <Reservation1 />
         <Reservation2 />
         <Reservation3 />
