@@ -5,6 +5,7 @@ import AllianceBenefit from '@components/Alliance/AllianceBenefit/AllianceBenefi
 import AllianceMain from '@components/Alliance/AllianceMain/AllianceMain';
 import AllianceContact from '@components/Alliance/AllianceContact/AllianceContact';
 import Layout from '@components/Layout/Layout';
+import SuccessSurvey from '@src/components/Alliance/SuccessSurvey/SuccessSurvey';
 
 type CustomLocationType = {
   shouldScrollToContact: boolean;
@@ -12,13 +13,24 @@ type CustomLocationType = {
 
 const IndexPage: React.FC<PageProps> = ({ location }) => {
   const state = location.state as CustomLocationType;
-
+  const [isSuccessSurvey, setIsSuccessSurvey] = useState(false);
   return (
     <Layout>
-      <LedingApply />
-      <AllianceMain />
-      <AllianceBenefit />
-      <AllianceContact shouldScrollToContact={state?.shouldScrollToContact} />
+      {isSuccessSurvey ? (
+        <>
+          <SuccessSurvey />
+        </>
+      ) : (
+        <>
+          <LedingApply />
+          <AllianceMain />
+          <AllianceBenefit />
+          <AllianceContact
+            shouldScrollToContact={state?.shouldScrollToContact}
+            setIsSuccessSurvey={setIsSuccessSurvey}
+          />
+        </>
+      )}
     </Layout>
   );
 };

@@ -11,9 +11,10 @@ const { applyContactInfo } = allianceApi();
 
 type AllianceContactProps = {
   shouldScrollToContact: boolean;
+  setIsSuccessSurvey: React.Dispatch<boolean>;
 };
 
-const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
+const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: AllianceContactProps) => {
   const [contactInfo, setContactInfo] = useState<ContactInfoType>({
     name: '',
     email: '',
@@ -50,14 +51,22 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
     selectedPlatformList.length > 0 &&
     region.length > 0;
 
-  const handleBenefitButton = () => {
+  const handleBenefitButton = async () => {
     if (!validatedBenefitButton) return;
-    applyContactInfo({
-      contactInfo,
-      region: region,
-      reservationPlatform: selectedPlatformList,
-      shouldInterview: selectedInterview,
-    });
+    try {
+      const res = await applyContactInfo({
+        contactInfo,
+        region: region,
+        reservationPlatform: selectedPlatformList,
+        shouldInterview: selectedInterview,
+      });
+      if(res.status >= 201 && res.status < 300) {
+        setIsSuccessSurvey(true);
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
