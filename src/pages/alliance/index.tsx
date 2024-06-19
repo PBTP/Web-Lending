@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { HeadFC, PageProps } from 'gatsby';
 import LedingApply from '@components/Lending/LendingApply/LedingApply';
 import AllianceBenefit from '@components/Alliance/AllianceBenefit/AllianceBenefit';
@@ -14,21 +14,45 @@ type CustomLocationType = {
 const IndexPage: React.FC<PageProps> = ({ location }) => {
   const state = location.state as CustomLocationType;
   const [isSuccessSurvey, setIsSuccessSurvey] = useState(false);
+  const allianceContactRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const disableScroll = (e: Event) => e.preventDefault();
+
+    if (state?.shouldScrollToContact && allianceContactRef.current) {
+      document.addEventListener('wheel', disableScroll, { passive: false });
+      document.addEventListener('touchmove', disableScroll, { passive: false });
+
+      allianceContactRef.current.scrollIntoView({ behavior: 'smooth' });
+
+      // 스크롤이 완료된 후 스크롤 이벤트 활성화
+      setTimeout(() => {
+        document.removeEventListener('wheel', disableScroll);
+        document.removeEventListener('touchmove', disableScroll);
+      }, 1000); // 1초 후 스크롤 이벤트 활성화
+    }
+
+    return () => {
+      document.removeEventListener('wheel', disableScroll);
+      document.removeEventListener('touchmove', disableScroll);
+    };
+  }, [state]);
+
   return (
     <Layout>
       {isSuccessSurvey ? (
-        <>
-          <SuccessSurvey />
-        </>
+        <SuccessSurvey />
       ) : (
         <>
           <LedingApply />
           <AllianceMain />
           <AllianceBenefit />
-          <AllianceContact
-            shouldScrollToContact={state?.shouldScrollToContact}
-            setIsSuccessSurvey={setIsSuccessSurvey}
-          />
+          <div ref={allianceContactRef}>
+            <AllianceContact
+              shouldScrollToContact={state?.shouldScrollToContact}
+              setIsSuccessSurvey={setIsSuccessSurvey}
+            />
+          </div>
         </>
       )}
     </Layout>

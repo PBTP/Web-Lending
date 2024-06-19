@@ -22,7 +22,7 @@ const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: Alliance
     store: '',
     snsLink: '',
   });
-
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setContactInfo((prevContactInfo) => ({
@@ -72,12 +72,12 @@ const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: Alliance
   const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!allianceContactWrapperRef || !allianceContactWrapperRef.current) return;
-
-    if (shouldScrollToContact) {
+    if (shouldScrollToContact && allianceContactWrapperRef.current) {
       allianceContactWrapperRef.current.scrollIntoView({ behavior: 'smooth' });
+      // 상태 초기화 (선택 사항)
+      window.history.replaceState({}, document.title);
     }
-  }, [allianceContactWrapperRef]);
+  }, [shouldScrollToContact]);
 
   return (
     <section ref={allianceContactWrapperRef} className={styles.AllianceContactWrapper}>
