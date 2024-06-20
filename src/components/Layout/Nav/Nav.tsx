@@ -25,9 +25,8 @@ const Nav = () => {
               </li>
             </div>
             <li>
-              {typeof window !== 'undefined' && window.location.pathname === '/' && (
-                <ApplyLink className={styles.BenefitButton} />
-              )}
+              
+              <ApplyLink className={styles.BenefitButton} />
             </li>
           </ul>
         </div>

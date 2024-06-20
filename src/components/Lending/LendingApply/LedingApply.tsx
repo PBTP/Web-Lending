@@ -15,9 +15,7 @@ const LedingApply = () => {
           <div>반려견의 건강과 미용 서비스를 한 곳에서 모아보고</div>
           <div>효율적으로 관리하세요.</div>
         </div>
-        {typeof window !== 'undefined' && window.location.pathname === '/' && (
-          <ApplyLink className={styles.LendingApplyButton} />
-        )}
+        <ApplyLink className={styles.LendingApplyButton} />
         <div className={styles.LendingApplyPcImageWrapper} data-aos="fade-left">
           <StaticImage
             src="../../../images/lending/lending_apply_image.png"

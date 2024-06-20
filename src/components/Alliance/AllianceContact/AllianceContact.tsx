@@ -11,9 +11,10 @@ const { applyContactInfo } = allianceApi();
 
 type AllianceContactProps = {
   shouldScrollToContact: boolean;
+  setIsSuccessSurvey: React.Dispatch<boolean>;
 };
 
-const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
+const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: AllianceContactProps) => {
   const [contactInfo, setContactInfo] = useState<ContactInfoType>({
     name: '',
     email: '',
@@ -21,7 +22,7 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
     store: '',
     snsLink: '',
   });
-
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setContactInfo((prevContactInfo) => ({
@@ -50,25 +51,33 @@ const AllianceContact = ({ shouldScrollToContact }: AllianceContactProps) => {
     selectedPlatformList.length > 0 &&
     region.length > 0;
 
-  const handleBenefitButton = () => {
+  const handleBenefitButton = async () => {
     if (!validatedBenefitButton) return;
-    applyContactInfo({
-      contactInfo,
-      region: region,
-      reservationPlatform: selectedPlatformList,
-      shouldInterview: selectedInterview,
-    });
+    try {
+      const res = await applyContactInfo({
+        contactInfo,
+        region: region,
+        reservationPlatform: selectedPlatformList,
+        shouldInterview: selectedInterview,
+      });
+      if(res.status >= 201 && res.status < 300) {
+        setIsSuccessSurvey(true);
+      }
+      
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const allianceContactWrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!allianceContactWrapperRef || !allianceContactWrapperRef.current) return;
-
-    if (shouldScrollToContact) {
+    if (shouldScrollToContact && allianceContactWrapperRef.current) {
       allianceContactWrapperRef.current.scrollIntoView({ behavior: 'smooth' });
+      // 상태 초기화 (선택 사항)
+      window.history.replaceState({}, document.title);
     }
-  }, [allianceContactWrapperRef]);
+  }, [shouldScrollToContact]);
 
   return (
     <section ref={allianceContactWrapperRef} className={styles.AllianceContactWrapper}>
