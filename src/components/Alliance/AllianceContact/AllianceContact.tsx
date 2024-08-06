@@ -22,7 +22,7 @@ const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: Alliance
     store: '',
     snsLink: '',
   });
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setContactInfo((prevContactInfo) => ({
@@ -60,10 +60,9 @@ const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: Alliance
         reservationPlatform: selectedPlatformList,
         shouldInterview: selectedInterview,
       });
-      if(res.status >= 201 && res.status < 300) {
+      if (res.status >= 201 && res.status < 300) {
         setIsSuccessSurvey(true);
       }
-      
     } catch (error) {
       console.log(error);
     }
@@ -107,7 +106,8 @@ const AllianceContact = ({ shouldScrollToContact, setIsSuccessSurvey }: Alliance
           description="숫자만 입력해주세요."
           placeholder="01012345678"
           name="phone"
-          type="number"
+          type="tell"
+          maxLength={11}
         />
         <AllianceInputField
           title="업체명"
